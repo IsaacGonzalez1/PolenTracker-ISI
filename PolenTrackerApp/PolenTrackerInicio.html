@@ -7,18 +7,105 @@
   <link rel="stylesheet" href="css/InicioStyle.css">
 </head>
 <body>
-  <header>PolenTracker</header>
-  <div class="container">
-    <div class="btn-container">
-      <button type="button">Inicio</button>
-      <button type="button">Alertas</button>
-      <button type="button">Busqueda</button>
-      <button type="button">Acerca de</button>
+  <header style="color: rgb(255, 255, 255);font-size: 40px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">PolenTracker</header>
+  <div class="btn-container">
+    <button type="button" id="inicio" class="btn" style="font-size: 20px;">Inicio</button>
+    <button type="button" id="alertas" class="btn" style="font-size: 20px;">Alertas</button>
+    <button type="button" id="busqueda" class="btn" style="font-size: 20px;">Busqueda</button>
+    <button type="button" id="acercade" class="btn" style="font-size: 20px;">Acerca de</button>
+    <button type="button" id="ajustes" class="btn" style="font-size: 20px;">Ajustes</button>
+
+    <div id="resultados"></div>
+</div>
+<div class="contenedor">
+    <div id="pantInicio" class="pantalla" style="text-align: center;">
+      
+      <div style="display: flex;">
+        <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+          <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Sobre nosotros</h2>
+          <p style="font-size: 20px;">PolenTracker es un proyecto diseñado para ayudar a las personas que sufren de alergias y asma a mejorar su calidad de vida proporcionándoles información precisa y oportuna sobre la calidad del aire y los niveles de polen en sus regiones.</p>
+          <p style="font-size: 20px;">Además, se pretende ayudar a los usuarios a anticiparse a los brotes alérgicos y tomar medidas preventivas, lo que podría reducir la necesidad de medicamentos y visitas médicas. La creación de esta aplicación también podría fomentar la conciencia sobre la importancia de la calidad del aire y la necesidad de proteger el medio ambiente.</p>
+        </div>
+        <div style="padding-left: 100px;">
+          <img src="imagen.jpg" alt="Imagen" style="width: 400px; height: 300px;">
+        </div>
+      </div>
+
+      <div style="display: flex;">
+        <div style="flex-grow: 2; padding-right: 10px;">
+          <img src="imagen.jpg" alt="Imagen" style="width: 400px; height: 300px;">
+        </div>
+        <div style="text-align: justify; max-width: 870px; padding-left: 10px; padding-right: 80px; padding-top: 50px;">
+          <p style="font-size: 20px; font-family: 'Times New Roman', Times, serif;"></p>
+        </div>
+      </div>
+      
     </div>
-    <div class="info-text">
-      <p>PolenTracker es un proyecto diseñado para ayudar a las personas que sufren de alergias y asma a mejorar su calidad de vida proporcionándoles información precisa y oportuna sobre la calidad del aire y los niveles de polen en sus regiones.</p>
-      <p>Además, se pretende ayudar a los usuarios a anticiparse a los brotes alérgicos y tomar medidas preventivas, lo que podría reducir la necesidad de medicamentos y visitas médicas. La creación de esta aplicación también podría fomentar la conciencia sobre la importancia de la calidad del aire y la necesidad de proteger el medio ambiente.</p>
+    
+    <div id="pantAlertas" class="pantalla" style="text-align: center;">
+        <div style="display: flex;">
+            <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+              <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Alertas</h2>
+              <p>Pantalla de alertas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="pantBusqueda" class="pantalla" style="text-align: center; align-items: center;">
+        <div style="display: flex;">
+            <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+              <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
+              <p>Pantalla de busqueda.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center;">
+        <div style="display: flex;">
+            <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+              <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Acerca de</h2>
+              <p>Pantalla de informacion</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="pantAjustes" class="pantalla" style="text-align: center; align-items: center;">
+        <div style="display: flex;">
+            <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+              <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Ajustes</h2>
+              <p>Pantalla de ajustes.</p>
+            </div>
+        </div>
     </div>
   </div>
+<script type="text/javascript">
+    const btns = document.querySelectorAll('.btn');
+    const pantallas = document.querySelectorAll('.pantalla');
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', () => {
+            // Ocultar todas las pantallas
+            for (let j = 0; j < pantallas.length; j++) {
+                pantallas[j].style.display = 'none';
+            }
+
+            // Mostrar la pantalla correspondiente
+            if (btns[i].id === 'inicio') {
+                document .getElementById('pantInicio').style.display = 'block';
+            } else if (btns[i].id === 'alertas') {
+                document.getElementById('pantAlertas').style.display = 'block';
+            } else if (btns[i].id === 'busqueda') {
+                document.getElementById('pantBusqueda').style.display = 'block';
+            } else if (btns[i].id === 'acercade') {
+                document.getElementById('pantAcercade').style.display = 'block';
+            } else if (btns[i].id === 'ajustes') {
+                document.getElementById('pantAjustes').style.display = 'block';
+            }
+        });
+  }
+    
+</script>
 </body>
 </html>

@@ -56,7 +56,7 @@
         <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
           <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
           <p>Selecciona una ciudad:</p>
-          <select id="city-select" style="height: 30px;">
+          <select id="city-select" style="height: 30px; width: 300px;">
             <option value="">Seleccionar</option>
           </select>
           <div id="results"></div>
@@ -72,10 +72,12 @@
           const citySelect = document.getElementById('city-select');
           // Crear opciones para cada ciudad
           for (const city of data.results) {
-            const option = document.createElement('option');
-            option.value = city.city;
-            option.textContent = city.city;
-            citySelect.appendChild(option);
+            if (city.country === 'ES') {
+              const option = document.createElement('option');
+              option.value = city.city;
+              option.textContent = city.city;
+              citySelect.appendChild(option);
+            }
           }
         })
         .catch(error => {

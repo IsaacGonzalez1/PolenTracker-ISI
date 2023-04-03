@@ -55,11 +55,67 @@
       <div style="display: flex;">
         <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
           <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
-          <p>Pantalla de busqueda</p>
+          <p>Selecciona una ciudad:</p>
+          <select id="city-select" style="height: 30px;">
+            <option value="">Seleccionar</option>
+          </select>
+          <div id="results"></div>
         </div>
       </div>
     </div>
-    
+
+    <script>
+      // Obtener la lista de ciudades disponibles de la API Openaq
+      fetch('https://api.openaq.org/v1/cities?limit=10000')
+        .then(response => response.json())
+        .then(data => {
+          const citySelect = document.getElementById('city-select');
+          // Crear opciones para cada ciudad
+          for (const city of data.results) {
+            const option = document.createElement('option');
+            option.value = city.city;
+            option.textContent = city.city;
+            citySelect.appendChild(option);
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          resultsContainer.innerHTML = 'Hubo un error al buscar los resultados';
+        });
+
+      const searchBtn = document.getElementById('search-btn');
+      const citySelect = document.getElementById('city-select');
+      const resultsContainer = document.getElementById('results');
+
+      // Agregar un evento de cambio al select de ciudades
+      citySelect.addEventListener('change', () => {
+        // Obtener la ciudad seleccionada
+        const city = citySelect.value;
+        // Hacer una solicitud a la API Openaq con la ciudad seleccionada
+        fetch(`https://api.openaq.org/v1/latest?city=${city}`)
+          .then(response => response.json())
+          .then(data => {
+            // Mostrar el primer resultado en la pantalla
+            const results = data.results[0];
+            const resultHtml = `
+              <div>
+                <p>Ciudad: ${results.city}</p>
+                <p>País: ${results.country}</p>
+                <p>Ubicación: ${results.location}</p>
+                <p>Parámetro: ${results.measurements[0].parameter}</p>
+                <p>Valor: ${results.measurements[0].value} ${results.measurements[0].unit}</p>
+                <p>Fecha: ${results.measurements[0].lastUpdated}</p>
+                <p>Coordenadas: Latitud: ${results.coordinates.latitude}, Longitud: ${results.coordinates.longitude}</p>
+              </div>`;
+            resultsContainer.innerHTML = resultHtml;
+          })
+          .catch(error => {
+            console.error(error);
+            resultsContainer.innerHTML = 'Hubo un error al buscar los resultados';
+        
+          });
+        });
+    </script>
 
     <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center;">
         <div style="display: flex;">

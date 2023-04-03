@@ -14,10 +14,10 @@ body {
 }
 header {
   background-color: #FF4500;
-  padding: 1rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
+  height: 60px;
 }
 
 .btn-container {
@@ -32,7 +32,7 @@ button {
   border: none;
   font-size: 1rem;
   cursor: pointer;
-  height: 70px;
+  height: 60px;
   width: 303.46px;
   margin: 0;
   text-align: center;

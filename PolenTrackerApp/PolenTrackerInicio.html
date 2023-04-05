@@ -51,21 +51,30 @@
         </div>
     </div>
 
-    <div id="pantBusqueda" class="pantalla" style="text-align: center;">
-      <div style="display: flex;">
-        <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
-          <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
-          <p>Selecciona una ciudad:</p>
-          <select id="city-select" style="height: 30px; width: 300px;">
-            <option value="">Seleccionar</option>
-          </select>
-          <div id="results"></div>
-        </div>
+  <div id="pantBusqueda" class="pantalla" style="text-align: center;">
+    <div style="display: flex; flex-direction: row;">
+      <div style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 0px;">
+        <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
+        <p>Selecciona una ciudad:</p>
+        <select id="city-select" style="height: 30px; width: 300px;">
+          <option value="">Seleccionar</option>
+        </select>
+        <div id="results"></div>
+      </div>
+      <div style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 0px;">
+        <p style="padding-top: 92.5px;">Selecciona el tipo de datos:</p>
+        <select id="typeData-select" style="height: 30px; width: 300px;">
+          <option value="">Seleccionar</option>
+        </select>
+        <div id="aemetResults"></div>
       </div>
     </div>
+  </div>
 
-    <script>
-      // Obtener la lista de ciudades disponibles de la API Openaq
+
+
+  <script>
+     // Obtener la lista de ciudades disponibles de la API Openaq
       fetch('https://api.openaq.org/v1/cities?limit=10000')
         .then(response => response.json())
         .then(data => {
@@ -117,7 +126,9 @@
         
           });
         });
-    </script>
+
+
+  </script>
 
     <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center;">
         <div style="display: flex;">

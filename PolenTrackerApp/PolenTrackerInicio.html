@@ -42,7 +42,7 @@
       
     </div>
     
-    <div id="pantAlertas" class="pantalla" style="text-align: center;">
+    <div id="pantAlertas" class="pantalla">
         <div style="display: flex;">
             <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Alertas</h2>
@@ -50,6 +50,54 @@
             </div>
         </div>
     </div>
+
+    <script>
+      // Obtener la lista de ciudades disponibles de la API Openaq
+      fetch('https://api.openaq.org/v1/cities?limit=10000')
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+          const contenedorResultados = document.getElementById('pantAlertas');
+          // Crear una lista de ciudades que cumplan la condición
+          const listaCiudades = document.createElement('ul');
+          for (const ciudad of datos.results) {
+            if (ciudad.country === 'ES') {
+              fetch(`https://api.openaq.org/v1/latest?city=${ciudad.city}`)
+                .then(respuesta => respuesta.json())
+                .then(datos => {
+                  const valor = datos.results[0].measurements[0].value;
+                  if (valor > 90 ) {
+                    // Agregar la información de la ciudad a la lista
+                    const itemCiudad = document.createElement('div');
+                    itemCiudad.classList.add('ciudad');
+                    const resultadoHtml = `
+                      <div>
+                        <p style = "font-size: 18px";><strong>Ciudad: ${ciudad.city}</strong></p>
+                        <p>País: ${ciudad.country}</p>
+                        <p>Ubicación: ${datos.results[0].location}</p>
+                        <p>Parámetro: ${datos.results[0].measurements[0].parameter}</p>
+                        <p>Valor: ${datos.results[0].measurements[0].value} ${datos.results[0].measurements[0].unit}</p>
+                        <p>Fecha: ${datos.results[0].measurements[0].lastUpdated}</p>
+                        <p>Coordenadas: Latitud: ${datos.results[0].coordinates.latitude}, Longitud: ${datos.results[0].coordinates.longitude}</p>
+                      </div>`;
+                    itemCiudad.innerHTML = resultadoHtml;
+                    listaCiudades.appendChild(itemCiudad);
+                  }
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+            }
+          }
+          contenedorResultados.appendChild(listaCiudades);
+          
+        })
+        .catch(error => {
+          console.error(error);
+          contenedorResultados.innerHTML = 'Hubo un error al buscar los resultados';
+        });
+
+    </script>
+    
 
   <div id="pantBusqueda" class="pantalla" style="text-align: center;">
     <div style="display: flex; flex-direction: row;">
@@ -150,32 +198,32 @@
         </div>
     </div>
   </div>
-<script type="text/javascript">
-    const btns = document.querySelectorAll('.btn');
-    const pantallas = document.querySelectorAll('.pantalla');
+  <script type="text/javascript">
+      const btns = document.querySelectorAll('.btn');
+      const pantallas = document.querySelectorAll('.pantalla');
 
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener('click', () => {
-            // Ocultar todas las pantallas
-            for (let j = 0; j < pantallas.length; j++) {
-                pantallas[j].style.display = 'none';
-            }
+      for (let i = 0; i < btns.length; i++) {
+          btns[i].addEventListener('click', () => {
+              // Ocultar todas las pantallas
+              for (let j = 0; j < pantallas.length; j++) {
+                  pantallas[j].style.display = 'none';
+              }
 
-            // Mostrar la pantalla correspondiente
-            if (btns[i].id === 'inicio') {
-                document .getElementById('pantInicio').style.display = 'block';
-            } else if (btns[i].id === 'alertas') {
-                document.getElementById('pantAlertas').style.display = 'block';
-            } else if (btns[i].id === 'busqueda') {
-                document.getElementById('pantBusqueda').style.display = 'block';
-            } else if (btns[i].id === 'acercade') {
-                document.getElementById('pantAcercade').style.display = 'block';
-            } else if (btns[i].id === 'ajustes') {
-                document.getElementById('pantAjustes').style.display = 'block';
-            }
-        });
-  }
-    
-</script>
+              // Mostrar la pantalla correspondiente
+              if (btns[i].id === 'inicio') {
+                  document .getElementById('pantInicio').style.display = 'block';
+              } else if (btns[i].id === 'alertas') {
+                  document.getElementById('pantAlertas').style.display = 'block';
+              } else if (btns[i].id === 'busqueda') {
+                  document.getElementById('pantBusqueda').style.display = 'block';
+              } else if (btns[i].id === 'acercade') {
+                  document.getElementById('pantAcercade').style.display = 'block';
+              } else if (btns[i].id === 'ajustes') {
+                  document.getElementById('pantAjustes').style.display = 'block';
+              }
+          });
+    }
+      
+  </script>
 </body>
 </html>

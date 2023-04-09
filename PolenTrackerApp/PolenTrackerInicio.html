@@ -16,27 +16,28 @@
     <button type="button" id="ajustes" class="btn" style="font-size: 18px;">Ajustes</button>
 
     <div id="resultados"></div>
-</div>
-<div class="contenedor">
+  </div>
+  <div class="contenedor">
     <div id="pantInicio" class="pantalla" style="text-align: center;">
       
       <div style="display: flex;">
         <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
           <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Sobre nosotros</h2>
-          <p style="font-size: 16px;">PolenTracker es un proyecto diseñado para ayudar a las personas que sufren de alergias y asma a mejorar su calidad de vida proporcionándoles información precisa y oportuna sobre la calidad del aire y los niveles de polen en sus regiones.</p>
-          <p style="font-size: 16px;">Además, se pretende ayudar a los usuarios a anticiparse a los brotes alérgicos y tomar medidas preventivas, lo que podría reducir la necesidad de medicamentos y visitas médicas. La creación de esta aplicación también podría fomentar la conciencia sobre la importancia de la calidad del aire y la necesidad de proteger el medio ambiente.</p>
+          <p id="textoSobreNosotros1" style="font-size: 16px;">PolenTracker es un proyecto diseñado para ayudar a las personas que sufren de alergias y asma a mejorar su calidad de vida proporcionándoles información precisa y oportuna sobre la calidad del aire y los niveles de polen en sus regiones.</p>
+          <p id="textoSobreNosotros2" style="font-size: 16px;">Además, se pretende ayudar a los usuarios a anticiparse a los brotes alérgicos y tomar medidas preventivas, lo que podría reducir la necesidad de medicamentos y visitas médicas. La creación de esta aplicación también podría fomentar la conciencia sobre la importancia de la calidad del aire y la necesidad de proteger el medio ambiente.</p>
         </div>
-        <div style="padding-left: 100px;">
-          <img src="imagen.jpg" alt="Imagen" style="width: 400px; height: 300px;">
+        <div style="padding-left: 40px;">
+          <img style = "padding-right: 40px; max-width: 400px; padding-top: 40px;" src="https://www.gesundheitsstadt-berlin.de/fileadmin/_processed_/f/e/csm_Graeser_Pollen_Heuschnupfen_851862fb18.jpg" alt="Imagen" style="width: 400px; height: 300px;">
         </div>
       </div>
 
       <div style="display: flex;">
-        <div style="flex-grow: 2; padding-right: 10px;">
-          <img src="imagen.jpg" alt="Imagen" style="width: 400px; height: 300px;">
+        <div style="flex-grow: 2; padding-right: 40px;">
+          <img style = "padding-left: 60px; max-width: 400px;" src="https://blog.bioquimica.cl/wp-content/uploads/2017/09/imagen-destacada-post-polen.jpg" alt="Imagen" style="width: 400px; height: 300px;">
         </div>
-        <div style="text-align: justify; max-width: 870px; padding-left: 10px; padding-right: 80px; padding-top: 50px;">
-          <p style="font-size: 20px; font-family: 'Times New Roman', Times, serif;"></p>
+        <div style="text-align: justify; max-width: 870px; padding-left: 10px; padding-right: 60px; padding-top: 50px;">
+          <p id="textoSobreNosotros3" style="font-size: 16px;">Nuestra plataforma es fácil de usar y proporciona información clara y detallada sobre los niveles de polen en España. Además, ofrecemos recomendaciones personalizadas basadas en los datos obtenidos para ayudar a los usuarios a reducir los efectos alérgicos y mejorar su calidad de vida.</p>
+          <p id="textoSobreNosotros4" style="font-size: 16px;">¡Únete a nosotros en PolenTracker y comienza a respirar más fácilmente!</p>
         </div>
       </div>
       
@@ -46,18 +47,17 @@
         <div style="display: flex;">
             <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Alertas</h2>
-              <p>Pantalla de alertas.</p>
             </div>
         </div>
     </div>
 
     <script>
-      // Obtener la lista de ciudades disponibles de la API Openaq
+      
       fetch('https://api.openaq.org/v1/cities?limit=10000')
         .then(respuesta => respuesta.json())
         .then(datos => {
           const contenedorResultados = document.getElementById('pantAlertas');
-          // Crear una lista de ciudades que cumplan la condición
+          
           const listaCiudades = document.createElement('ul');
           for (const ciudad of datos.results) {
             if (ciudad.country === 'ES') {
@@ -66,7 +66,7 @@
                 .then(datos => {
                   const valor = datos.results[0].measurements[0].value;
                   if (valor > 90 ) {
-                    // Agregar la información de la ciudad a la lista
+                    
                     const itemCiudad = document.createElement('div');
                     itemCiudad.classList.add('ciudad');
                     const resultadoHtml = `
@@ -97,7 +97,6 @@
         });
 
     </script>
-    
 
   <div id="pantBusqueda" class="pantalla" style="text-align: center;">
     <div style="display: flex; flex-direction: row;">
@@ -119,15 +118,13 @@
     </div>
   </div>
 
-
-
   <script>
-     // Obtener la lista de ciudades disponibles de la API Openaq
+    
       fetch('https://api.openaq.org/v1/cities?limit=10000')
         .then(response => response.json())
         .then(data => {
           const citySelect = document.getElementById('city-select');
-          // Crear opciones para cada ciudad
+          
           for (const city of data.results) {
             if (city.country === 'ES') {
               const option = document.createElement('option');
@@ -146,15 +143,14 @@
       const citySelect = document.getElementById('city-select');
       const resultsContainer = document.getElementById('results');
 
-      // Agregar un evento de cambio al select de ciudades
       citySelect.addEventListener('change', () => {
-        // Obtener la ciudad seleccionada
+        
         const city = citySelect.value;
-        // Hacer una solicitud a la API Openaq con la ciudad seleccionada
+        
         fetch(`https://api.openaq.org/v1/latest?city=${city}`)
           .then(response => response.json())
           .then(data => {
-            // Mostrar el primer resultado en la pantalla
+            
             const results = data.results[0];
             const resultHtml = `
               <div>
@@ -171,45 +167,149 @@
           .catch(error => {
             console.error(error);
             resultsContainer.innerHTML = 'Hubo un error al buscar los resultados';
-        
           });
         });
-
-
   </script>
 
     <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center;">
         <div style="display: flex;">
-            <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+            <div style="flex-grow: 2; text-align: justify; max-width: 1250px; padding-left: 60px; padding-top: 0px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Acerca de</h2>
-              <p>Pantalla de informacion</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Historia y Trayectoria</h3>
+              <p>Nuestra página web ha sido fundada en el año 2023 con el objetivo de brindar a los usuarios información precisa y actualizada sobre los niveles de polen en su zona, así como ofrecer recomendaciones basadas en los datos obtenidos para ayudar a reducir los efectos alérgicos. Nos enfocamos en utilizar las APIs de OpenAQ y AEMET para recopilar los datos necesarios y presentarlos de manera clara y fácil de entender.</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Misión y Visión</h3>
+              <p>Nuestra misión es mejorar la calidad de vida de las personas al brindar información precisa y actualizada sobre los niveles de polen en su zona y ofrecer recomendaciones para reducir los efectos alérgicos. Nuestra visión es convertirnos en la principal fuente de información sobre los niveles de polen y la prevención de alergias en España.</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Equipo de Trabajo</h3>
+              <p>Contamos con un equipo de expertos en desarrollo web y análisis de datos que trabajan incansablemente para garantizar que nuestra página web brinde información precisa y actualizada a nuestros usuarios.</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Logros y Reconocimientos</h3>
+              <p>Hasta la fecha, nuestra página web ha recibido elogios y reconocimientos de varios medios de comunicación y organizaciones en la lucha contra las alergias. También hemos sido reconocidos por nuestra capacidad para presentar datos complejos de manera clara y accesible para nuestros usuarios.</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Política de Privacidad y Términos de Uso</h3>
+              <p>Nuestra página web se compromete a proteger la privacidad de nuestros usuarios y cumplir con todas las leyes y regulaciones aplicables.</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Contacto y Medios de Comunicación</h3>
+              <p>Para comunicarse con nosotros, puede enviar un correo electrónico a nuestro equipo de soporte técnico (info@polentracker.com) o seguirnos en nuestras redes sociales. También puede encontrar información de contacto detallada en nuestra página web.</p>
+              <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Patrocinadores o Socios Colaboradores</h3>
+              <p>En nuestra página web no contamos con patrocinadores o socios colaboradores externos en este momento. Todos nuestros esfuerzos y recursos están dedicados a brindar la mejor experiencia de usuario posible y mejorar nuestros servicios.</p>
             </div>
         </div>
-    </div>
-
     </div>
 
     <div id="pantAjustes" class="pantalla" style="text-align: center; align-items: center;">
         <div style="display: flex;">
-            <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+            <div style="flex-grow: 2; text-align: justify; max-width: 1500px; padding-left: 60px; padding-top: 0px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Ajustes</h2>
-              <p>Pantalla de ajustes.</p>
+              <p>Modificar el tamaño del texto:</p>
+              <div style="text-align: left;">
+                <div>
+                  <button onclick="aumentarTexto()" style="display: inline-block; margin-right: 30px; border-radius: 10px; max-width: 225px;">Aumentar tamaño del texto</button>
+                  <button onclick="reducirTexto()" style="display: inline-block; margin-right: 30px; border-radius: 10px; max-width: 225px;">Reducir tamaño del texto</button>
+                  <button onclick="restablecerTextoSize()" style="display: inline-block; margin-right: 30px; border-radius: 10px; max-width: 225px;">Restablecer tamaño del texto</button>
+                </div>                
+              </div>
+              <p>Modificar la fuente del texto:</p>
+              <div style="text-align: left;">
+                <div>
+                  <button onclick="cambiarFuenteTexto()" style="display: inline-block;  margin-right: 30px; border-radius: 10px; max-width: 225px;">Modificar fuente del texto</button>
+                  <button onclick="restablecerFuenteTexto()" style="display: inline-block;  margin-right: 30px; border-radius: 10px; max-width: 225px;">Restablecer fuente del texto</button>  
+                </div>
+              </div>
+              <p>Modificar los colores de la web:</p>
+              <div style="text-align: left;">
+                <div>
+                  <button onclick="document.body.classList.add('grayscale')" style="display: inline-block;  margin-right: 30px; border-radius: 10px; max-width: 225px;">Convertir a blanco y negro</button>
+	                <button onclick="document.body.classList.remove('grayscale')" style="display: inline-block;  margin-right: 30px; border-radius: 10px; max-width: 225px;">Restablecer colores</button>
+                </div>
+              </div>
+              <p>Modificar el modo de la web:</p>
+              <div style="text-align: left; padding-bottom: 40px;">
+                <div>
+                  <button onclick="activarModoOscuro()" style="display: inline-block;  margin-right: 30px; border-radius: 10px; max-width: 225px;">Activar modo oscuro</button>
+                  <button onclick="restablecerModoNormal()" style="display: inline-block;  margin-right: 30px; border-radius: 10px; max-width: 225px;">Restablecer modo normal</button>
+                </div>
+              </div>
+
+              <style>
+                body {
+                  transition: all 1s ease;
+                }
+                
+                .grayscale {
+                  filter: grayscale(100%);
+                }
+              </style>
+              <script>
+                var tamañoInicial = parseInt(document.body.style.fontSize) || 16;
+                var fuenteInicial = document.body.style.fontFamily;
+
+                function aumentarTexto() {
+                  var tamañoActual = parseInt(document.body.style.fontSize) || 16;
+                  tamañoActual += 2;
+                  document.body.style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros1').style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros2').style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros3').style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros4').style.fontSize = tamañoActual + 'px';
+                }
+
+                function reducirTexto() {
+                  var tamañoActual = parseInt(document.body.style.fontSize) || 16;
+                  tamañoActual -= 2;
+                  document.body.style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros1').style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros2').style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros3').style.fontSize = tamañoActual + 'px';
+                  document.getElementById('textoSobreNosotros4').style.fontSize = tamañoActual + 'px';
+                }
+
+                function restablecerTextoSize() {
+                  document.body.style.fontSize = tamañoInicial + 'px';
+                  document.getElementById('textoSobreNosotros1').style.fontSize = tamañoInicial + 'px';
+                  document.getElementById('textoSobreNosotros2').style.fontSize = tamañoInicial + 'px';
+                  document.getElementById('textoSobreNosotros3').style.fontSize = tamañoInicial + 'px';
+                  document.getElementById('textoSobreNosotros4').style.fontSize = tamañoInicial + 'px';
+                }
+
+                function cambiarFuenteTexto() {
+                    document.body.style.fontFamily = "'sans serif'";
+                    document.getElementById('textoSobreNosotros1').style.fontFamily = "'sans serif'";
+                    document.getElementById('textoSobreNosotros2').style.fontFamily = "'sans serif'";
+                    document.getElementById('textoSobreNosotros3').style.fontFamily = "'sans serif'";
+                    document.getElementById('textoSobreNosotros4').style.fontFamily = "'sans serif'";
+                }
+
+                function restablecerFuenteTexto() {
+                    document.body.style.fontFamily = fuenteInicial;
+                    document.getElementById('textoSobreNosotros1').style.fontFamily = fuenteInicial;
+                    document.getElementById('textoSobreNosotros2').style.fontFamily = fuenteInicial;
+                    document.getElementById('textoSobreNosotros3').style.fontFamily = fuenteInicial;
+                    document.getElementById('textoSobreNosotros4').style.fontFamily = fuenteInicial;
+                }
+
+                function activarModoOscuro() {
+                  document.body.style.backgroundColor = "#333";
+                  document.body.style.color = "#fff";
+                }
+
+                function restablecerModoNormal() {
+                  document.body.style.backgroundColor = "";
+                  document.body.style.color = "";
+                }
+
+              </script>
             </div>
         </div>
     </div>
-  </div>
+
   <script type="text/javascript">
       const btns = document.querySelectorAll('.btn');
       const pantallas = document.querySelectorAll('.pantalla');
 
       for (let i = 0; i < btns.length; i++) {
           btns[i].addEventListener('click', () => {
-              // Ocultar todas las pantallas
+            
               for (let j = 0; j < pantallas.length; j++) {
                   pantallas[j].style.display = 'none';
               }
 
-              // Mostrar la pantalla correspondiente
               if (btns[i].id === 'inicio') {
                   document .getElementById('pantInicio').style.display = 'block';
               } else if (btns[i].id === 'alertas') {

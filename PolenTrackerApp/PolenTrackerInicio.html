@@ -96,80 +96,36 @@
           contenedorResultados.innerHTML = 'Hubo un error al buscar los resultados';
         });
 
+        
+
     </script>
 
   <div id="pantBusqueda" class="pantalla" style="text-align: center;">
-    <div style="display: flex; flex-direction: row;">
-      <div style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 0px;">
-        <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
-        <p>Selecciona una ciudad:</p>
-        <select id="city-select" style="height: 30px; width: 300px;">
-          <option value="">Seleccionar</option>
-        </select>
-        <div id="results"></div>
-      </div>
-      <div style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 0px;">
-        <p style="padding-top: 92.5px;">Selecciona el tipo de datos:</p>
-        <select id="typeData-select" style="height: 30px; width: 300px;">
-          <option value="">Seleccionar</option>
-        </select>
-        <div id="aemetResults"></div>
-      </div>
+    <div style="display: flex; flex-direction: row; padding-left: 60px; padding-top: 0px;">
+      <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
+  
+        <div class="busqueda-ciudad" style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 94px;">
+          <p>Selecciona una ciudad:</p>
+          <select id="city-select" style="height: 30px; width: 300px;">
+            <option value="">Seleccionar</option>
+          </select>
+          <div id="results"></div>
+        </div>
+        <div class="busqueda-datos" style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 0px;">
+          <p style="padding-top: 92.5px;">Selecciona el tipo de datos:</p>
+          <select id="typeData-select" style="height: 30px; width: 300px;">
+            <option value="">Seleccionar</option>
+            <option value="calidad-aire">Calidad del aire</option>
+            <option value="calidad-tiempo">Calidad del Tiempo</option>
+            <option value="nivel-polen">Nivel del Polen</option>
+          </select>
+        </div>
+      
     </div>
   </div>
-
-  <script>
-    
-      fetch('https://api.openaq.org/v1/cities?limit=10000')
-        .then(response => response.json())
-        .then(data => {
-          const citySelect = document.getElementById('city-select');
-          
-          for (const city of data.results) {
-            if (city.country === 'ES') {
-              const option = document.createElement('option');
-              option.value = city.city;
-              option.textContent = city.city;
-              citySelect.appendChild(option);
-            }
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          resultsContainer.innerHTML = 'Hubo un error al buscar los resultados';
-        });
-
-      const searchBtn = document.getElementById('search-btn');
-      const citySelect = document.getElementById('city-select');
-      const resultsContainer = document.getElementById('results');
-
-      citySelect.addEventListener('change', () => {
-        
-        const city = citySelect.value;
-        
-        fetch(`https://api.openaq.org/v1/latest?city=${city}`)
-          .then(response => response.json())
-          .then(data => {
-            
-            const results = data.results[0];
-            const resultHtml = `
-              <div>
-                <p>Ciudad: ${results.city}</p>
-                <p>País: ${results.country}</p>
-                <p>Ubicación: ${results.location}</p>
-                <p>Parámetro: ${results.measurements[0].parameter}</p>
-                <p>Valor: ${results.measurements[0].value} ${results.measurements[0].unit}</p>
-                <p>Fecha: ${results.measurements[0].lastUpdated}</p>
-                <p>Coordenadas: Latitud: ${results.coordinates.latitude}, Longitud: ${results.coordinates.longitude}</p>
-              </div>`;
-            resultsContainer.innerHTML = resultHtml;
-          })
-          .catch(error => {
-            console.error(error);
-            resultsContainer.innerHTML = 'Hubo un error al buscar los resultados';
-          });
-        });
-  </script>
+  <script src="BusquedaScriptOpenaq.js"></script>
+  <script src="BusquedaScriptAemet.js"></script>
+  <script src="BusquedaPolen.js"></script>
 
     <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center;">
         <div style="display: flex;">

@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Registro de usuario - PolenTracker</h1>
-        <form>
+        <form onsubmit="guardarUsuario(event)">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
             
@@ -34,5 +34,25 @@
             <button type="submit">Registrarse</button>
         </form>
     </div>
+    
+    <script>
+        function guardarUsuario(event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre").value;
+            const apellidos = document.getElementById("apellidos").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const confirm_password = document.getElementById("confirm_password").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            
+            // Comprobar que las contraseñas coinciden
+            if (password !== confirm_password) {
+                alert("Las contraseñas no coinciden");
+                return;
+            }
+        }
+    </script>
 </body>
 </html>
+

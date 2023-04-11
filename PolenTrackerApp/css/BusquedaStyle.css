@@ -1,0 +1,79 @@
+/* Estilos para la pantalla de búsqueda */
+
+/* Fondo de pantalla */
+body {
+    background-color: #ffeaa7;
+  }
+  
+  /* Título */
+  #pantBusqueda h2 {
+    color: #ff9f43;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Selección de ciudad */
+  #city-select {
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: #f9ca24;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  #city-select option[value=""] {
+    display: none;
+  }
+  
+  /* Resultados de la búsqueda */
+  #results {
+    margin-top: 10px;
+    background-color: #f9ca24;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Selección de tipo de datos */
+  #typeData-select {
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: #f0932b;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  
+  #typeData-select option[value=""] {
+    display: none;
+  }
+  
+  /* Botón volver al inicio */
+  #btn-volver {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff9f43;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Resultados de la búsqueda de AEMET */
+  #aemetResults {
+    margin-top: 10px;
+    background-color: #f0932b;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  

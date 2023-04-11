@@ -51,6 +51,28 @@
                 alert("Las contraseñas no coinciden");
                 return;
             }
+            
+            const nuevoUsuario = {
+                "username": username,
+                "password": password,
+                "nombre": nombre,
+                "apellidos": apellidos,
+                "email": email,
+                "phone": phone
+            };
+            
+            // Enviar los datos del nuevo usuario al servidor
+            fetch("bbdd.json", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(nuevoUsuario)
+            })
+            .then(() => {
+                // Redirigir a la página de inicio
+                window.location.href = "PolenTrackerInicio.html";
+            })
         }
     </script>
 </body>

@@ -18,10 +18,10 @@
     <div id="resultados"></div>
   </div>
   <div class="contenedor">
-    <div id="pantInicio" class="pantalla" style="text-align: center;">
+    <div id="pantInicio" class="pantalla" style="text-align: center; width: 100%;">
       
-      <div style="display: flex;">
-        <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
+      <div style="display: flex; width: 100%;">
+        <div style="flex-grow: 2; text-align: justify; width: 100%; padding-left: 60px; padding-top: 0px;">
           <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Sobre nosotros</h2>
           <p id="textoSobreNosotros1" style="font-size: 16px;">PolenTracker es un proyecto diseñado para ayudar a las personas que sufren de alergias y asma a mejorar su calidad de vida proporcionándoles información precisa y oportuna sobre la calidad del aire y los niveles de polen en sus regiones.</p>
           <p id="textoSobreNosotros2" style="font-size: 16px;">Además, se pretende ayudar a los usuarios a anticiparse a los brotes alérgicos y tomar medidas preventivas, lo que podría reducir la necesidad de medicamentos y visitas médicas. La creación de esta aplicación también podría fomentar la conciencia sobre la importancia de la calidad del aire y la necesidad de proteger el medio ambiente.</p>
@@ -31,11 +31,11 @@
         </div>
       </div>
 
-      <div style="display: flex;">
+      <div style="display: flex; width: 100%;">
         <div style="flex-grow: 2; padding-right: 40px;">
           <img style = "padding-left: 60px; max-width: 400px;" src="https://blog.bioquimica.cl/wp-content/uploads/2017/09/imagen-destacada-post-polen.jpg" alt="Imagen" style="width: 400px; height: 300px;">
         </div>
-        <div style="text-align: justify; max-width: 870px; padding-left: 10px; padding-right: 60px; padding-top: 50px;">
+        <div style="text-align: justify; width: 100%; padding-left: 10px; padding-right: 60px; padding-top: 50px;">
           <p id="textoSobreNosotros3" style="font-size: 16px;">Nuestra plataforma es fácil de usar y proporciona información clara y detallada sobre los niveles de polen en España. Además, ofrecemos recomendaciones personalizadas basadas en los datos obtenidos para ayudar a los usuarios a reducir los efectos alérgicos y mejorar su calidad de vida.</p>
           <p id="textoSobreNosotros4" style="font-size: 16px;">¡Únete a nosotros en PolenTracker y comienza a respirar más fácilmente!</p>
         </div>
@@ -43,7 +43,7 @@
       
     </div>
     
-    <div id="pantAlertas" class="pantalla">
+    <div id="pantAlertas" class="pantalla" style="width: 100%;">
         <div style="display: flex;">
             <div style="flex-grow: 2; text-align: justify; max-width: 870px; padding-left: 60px; padding-top: 0px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Alertas</h2>
@@ -96,12 +96,10 @@
           contenedorResultados.innerHTML = 'Hubo un error al buscar los resultados';
         });
 
-        
-
     </script>
 
-  <div id="pantBusqueda" class="pantalla" style="text-align: center;">
-    <div style="display: flex; flex-direction: row; padding-left: 60px; padding-top: 0px;">
+  <div id="pantBusqueda" class="pantalla" style="text-align: center; width: 100%;">
+    <div style="display: flex; flex-direction: row; padding-left: 60px; padding-top: 0px;  width: 100%;">
       <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Busqueda</h2>
   
         <div class="busqueda-ciudad" style="width: 50%; text-align: justify; max-width: 435px; padding-left: 60px; padding-top: 94px;">
@@ -127,9 +125,9 @@
   <script src="BusquedaScriptAemet.js"></script>
   <script src="BusquedaPolen.js"></script>
 
-    <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center;">
-        <div style="display: flex;">
-            <div style="flex-grow: 2; text-align: justify; max-width: 1250px; padding-left: 60px; padding-top: 0px;">
+    <div id="pantAcercade" class="pantalla" style="text-align: center; align-items: center; width: 100%;">
+        <div style="display: flex; width: 100%;">
+            <div style="flex-grow: 2; text-align: justify; width: 100%; padding-left: 60px; padding-top: 0px; padding-right: 50px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Acerca de</h2>
               <h3 style="color: rgb(209, 102, 52);font-size: 25px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Historia y Trayectoria</h3>
               <p>Nuestra página web ha sido fundada en el año 2023 con el objetivo de brindar a los usuarios información precisa y actualizada sobre los niveles de polen en su zona, así como ofrecer recomendaciones basadas en los datos obtenidos para ayudar a reducir los efectos alérgicos. Nos enfocamos en utilizar las APIs de OpenAQ y AEMET para recopilar los datos necesarios y presentarlos de manera clara y fácil de entender.</p>
@@ -149,8 +147,8 @@
         </div>
     </div>
 
-    <div id="pantAjustes" class="pantalla" style="text-align: center; align-items: center;">
-        <div style="display: flex;">
+    <div id="pantAjustes" class="pantalla" style="text-align: center; align-items: center; width: 100%;">
+        <div style="display: flex; width: 100%;">
             <div style="flex-grow: 2; text-align: justify; max-width: 1500px; padding-left: 60px; padding-top: 0px;">
               <h2 style="color: rgb(209, 102, 52);font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Ajustes</h2>
               <p>Modificar el tamaño del texto:</p>

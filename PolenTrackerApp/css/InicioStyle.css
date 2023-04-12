@@ -57,3 +57,14 @@ button:hover {
   margin-bottom: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
+#results {
+  text-align: left;
+  padding-left: 50px;
+  margin-top: 10px;
+  background-color: #ffac31;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}

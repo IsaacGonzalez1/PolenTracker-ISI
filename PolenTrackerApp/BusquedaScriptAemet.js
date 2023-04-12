@@ -73,7 +73,7 @@ typeDataSelect.addEventListener('change', () => {
         })
         .then(response => response.json())
         .then(weatherData => {
-          console.log(weatherData[0])
+          
           // Procesar y mostrar la información sobre humedad y temperatura
           const humidityRelativeMin = weatherData[0].prediccion.dia[0].humedadRelativa.minima;
           const humidityRelativeMax = weatherData[0].prediccion.dia[0].humedadRelativa.maxima;

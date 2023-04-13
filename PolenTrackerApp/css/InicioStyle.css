@@ -1,0 +1,70 @@
+.pantalla {
+  display: none;
+}
+
+#pantInicio {
+  display: block;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe1ce;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #FF4500;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  height: 60px;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+button {
+  background-color: #FF8C00;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  height: 60px;
+  width: 20%;
+  margin: 0;
+  text-align: center;
+  justify-content: left;
+  align-items: left;
+}
+.btn.active {
+  background-color: #666;
+}
+
+button:hover {
+  background-color: #ffac31;
+}
+
+.ciudad {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 3px solid rgb(231, 102, 52);
+  background-color: rgba(231, 103, 52, 0.116);
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+#results {
+  text-align: left;
+  padding-left: 50px;
+  margin-top: 10px;
+  background-color: #ffac31;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}

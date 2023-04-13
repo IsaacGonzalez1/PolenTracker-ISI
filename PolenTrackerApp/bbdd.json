@@ -1,0 +1,29 @@
+{
+  "users": [
+  {
+    "username": "Natalia",
+    "password": "Natalia",
+    "nombre": "Natalia",
+    "apellidos": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "username": "Patricia",
+    "password": "Patricia",
+    "nombre": "Patricia",
+    "apellidos": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "username": "Isaac",
+    "password": "Isaac",
+    "nombre": "Isaac",
+    "apellidos": "",
+    "email": "",
+    "phone": ""
+  }
+  
+  ]
+}

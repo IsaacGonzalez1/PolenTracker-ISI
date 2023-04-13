@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PolenTracker - Inicio de sesión y registro</title>
+  <link rel="stylesheet" href="css/LoginStyle.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2>Inicio de sesión</h2>
+      <form method="post">
+        <input type="text" name="username" placeholder="Identificador de usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar sesión</button>
+       </form>
+      <a href="PolenTrackerRegistro.html">Crear una cuenta</a>
+    </div>
+  </div>
+</body>
+
+<script>
+  // lee la base de datos
+  fetch('bbdd.json')
+    .then(response => response.json())
+    .then(data => {
+      const validarInicioSesion = (event) => {
+        event.preventDefault();
+        const username = document.querySelector('input[name="username"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        // busca el usuario en la base de datos
+        const user = data.users.find(user => user.username === username && user.password === password);
+        if (user) {
+          window.location.href = 'PolenTrackerInicio.html'; //si los datos se encuentran en la base de datos, lleva a la pagina de inicio
+        } else {
+          alert('El usuario no se encuentra en la base de datos.'); //si los datos no se encuentran en la base de datos, muestra el mensaje
+        }
+      };
+      // agrega el evento de inicio de sesión al formulario
+      document.querySelector('form').addEventListener('submit', validarInicioSesion);
+    })
+    .catch(error => console.error('Error al leer el archivo bbdd.json:', error));
+</script>
+</html>
+

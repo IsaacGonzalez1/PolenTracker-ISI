@@ -12,19 +12,41 @@ body {
   margin: 0;
   padding: 0;
 }
+
 header {
   background-color: #FF4500;
   color: white;
   font-size: 1rem;
   text-align: center;
-  height: 60px;
+  height: 100px;
+  padding: 5px;
+  margin-bottom: 10px;
+  padding-top: 50px;
+  
 }
+
+header h1{
+  position: absolute;
+  font-size: 3.3vw;
+  font-weight: bolder;
+  font-family: 'Raleway', sans-serif;
+  z-index: 1;
+  color: #ffffff;
+  right: 0;
+  left: 0;
+  margin-top: 0;
+  font-family: 'Tilt Prism', cursive;
+}
+
+
 
 .btn-container {
   width: 100%;
   display: flex;
-  gap: 0;
-  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px black solid;
+  border-top: 1.5px black solid;
+  padding: 0;
 }
 
 button {
@@ -35,17 +57,24 @@ button {
   cursor: pointer;
   height: 60px;
   width: 20%;
-  margin: 0;
   text-align: center;
   justify-content: left;
   align-items: left;
+  margin: 0;
+  padding: 0;
+  transition: all .5s;
+  overflow:hidden;
 }
+
 .btn.active {
   background-color: #666;
 }
 
 button:hover {
   background-color: #ffac31;
+  text-shadow: 0.6em 0.9em 0.1em #e4e0e0,
+	  -0.7em 0.5em 0.1em #e4e0e0,
+	  0.8em -0.7em 0.1em #e4e0e0;
 }
 
 .ciudad {
@@ -56,7 +85,9 @@ button:hover {
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  border-radius: 15px;
 }
+
 #results {
   text-align: left;
   padding-left: 50px;

@@ -32,18 +32,20 @@ En esta sección, proporcionaremos una guía paso a paso para aprovechar al máx
 - **Consejos Personalizados**: Basado en los niveles de riesgo, ofrecemos consejos personalizados para la gestión de alergias.
 
 ### Alertas y Recomendaciones Personalizadas
+- Aqui se mostrarán siguiendo ciertas condiciones los lugares donde se alcance un pico de nivel de polen
+![image](https://github.com/IsaacGonzalez1/PolenTracker-ISI/assets/72462257/372afe53-df44-4abf-aae5-b9081bbb6636)
 
 
 
 ### Navegación y Accesibilidad
+- Esta pagina web está adecuada para todos los usuarios, es por ello que existe un apartado de accesibilidad
+![image](https://github.com/IsaacGonzalez1/PolenTracker-ISI/assets/72462257/68ebe287-9af6-4d50-998d-8a00b8ad9f32)
 
 
 ### Preguntas Frecuentes (FAQs)
+![image](https://github.com/IsaacGonzalez1/PolenTracker-ISI/assets/72462257/3c1659b7-fa46-49a1-af7e-d3e78f1d33e1)
 
 
-## Licencia
-
-Información sobre la licencia bajo la cual se distribuye el proyecto. Por ejemplo, "Este proyecto está licenciado bajo la Licencia MIT - vea el archivo LICENSE.md para más detalles".
 
 ## Autores
 

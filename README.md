@@ -1,4 +1,5 @@
 # PolenTracker
+![image](https://github.com/IsaacGonzalez1/PolenTracker-ISI/assets/72462257/4aeaf099-3547-4a9e-bf50-9ebb7488609f)
 
 PolenTracker es una aplicación web diseñada para ayudar a las personas con alergias y asma, proporcionando información actualizada y precisa sobre la calidad del aire y los niveles de polen en su región. Este proyecto tiene como objetivo mejorar la calidad de vida de estos individuos, permitiéndoles anticiparse a los brotes alérgicos y tomar medidas preventivas.
 
@@ -8,57 +9,37 @@ PolenTracker se centra en la entrega de información relevante sobre la calidad 
 
 ## Instalación
 
-Instrucciones para instalar PolenTracker (puedes añadir comandos o pasos específicos aquí).
-
-## Uso
-
-Descripción de cómo usar la aplicación. Incluye ejemplos de funcionalidades como la búsqueda de ubicaciones, cálculo de niveles de riesgo de polen, alertas y recomendaciones personalizadas.
-
-(Aquí puedes insertar imágenes o capturas de pantalla para ilustrar el uso de la aplicación)
-
+Instrucciones para instalar PolenTracker: Para ello habrá una única manera:
+- Instalando nuestro repositorio en su dispositivo y visualizandolo con cualquier IDE (Visual Studio Code) -> Plugin: Live Server
+  
 ## Manual de Usuario
 
 En esta sección, proporcionaremos una guía paso a paso para aprovechar al máximo las funcionalidades de PolenTracker.
 
 ### Búsqueda de Ubicaciones
+![image](https://github.com/IsaacGonzalez1/PolenTracker-ISI/assets/72462257/6c654d9c-6e7a-43ed-b0f6-5d9ce90fc4c3)
 
-- **Paso 1: Acceso a la Búsqueda**: Explicación de cómo acceder a la función de búsqueda en la interfaz principal.
-- **Paso 2: Introducir Ubicación**: Detalles sobre cómo ingresar una ubicación (por ejemplo, nombre de la ciudad, código postal).
-- **Paso 3: Interpretación de Resultados**: Después de realizar la búsqueda, se presentarán los niveles de polen y calidad del aire. Aquí, explicamos cómo interpretar estos resultados y qué significan para los usuarios.
+- **Paso 1: Acceso a la Búsqueda**: Entraremos dentro de la sección de Búsqueda.
+- **Paso 2: Introducir Ubicación**: Al no disponer de una entrada de texto, el usuario dispone de dos selectores que tendrá para elegir la ciudad y los tipos de datos (tiempo, calidad del aire y nivel de polen)
+- **Paso 3: Interpretación de Resultados**: Después de realizar la búsqueda, se presentarán los niveles de polen y calidad del aire:
+ ![image](https://github.com/IsaacGonzalez1/PolenTracker-ISI/assets/72462257/f936d0e7-29aa-431b-88da-64c368e7e3d6)
+
 
 ### Cálculo de Niveles de Riesgo de Polen
 
-- **Metodología de Cálculo**: Descripción detallada del algoritmo o método utilizado para calcular los niveles de riesgo de polen, incluyendo las fuentes de datos y su frecuencia de actualización.
-- **Interpretación de los Niveles**: Explicación de los diferentes niveles de riesgo (bajo, moderado, alto) y qué acciones se recomiendan en cada nivel.
+- **Metodología de Cálculo**: Jutando las diferentes métricas que comentamos anteriormente, se mostrará por pantalla los distintos resultados.
+- **Interpretación de los Niveles**: En función de los distintos niveles que hay, ofrecemos diferentes consejos e información.
 - **Consejos Personalizados**: Basado en los niveles de riesgo, ofrecemos consejos personalizados para la gestión de alergias.
 
 ### Alertas y Recomendaciones Personalizadas
 
-- **Configuración de Alertas**: Instrucciones paso a paso sobre cómo configurar alertas personalizadas según las necesidades del usuario (p. ej., alertas para ciertos niveles de polen o calidad del aire).
-- **Recepción de Alertas**: Explicación de cómo se recibirán las alertas (por ejemplo, a través de notificaciones en la aplicación, correo electrónico, SMS).
-- **Actuar Sobre las Alertas**: Consejos sobre cómo reaccionar de manera efectiva ante las alertas recibidas.
+
 
 ### Navegación y Accesibilidad
 
-- **Navegación por la Aplicación**: Consejos para navegar eficientemente a través de las diferentes secciones y características de la aplicación.
-- **Accesibilidad**: Información sobre las características de accesibilidad disponibles (como lectura de pantalla, contraste alto) para garantizar que la aplicación sea usable por personas con diversas necesidades.
 
 ### Preguntas Frecuentes (FAQs)
 
-- **Pregunta 1**: Respuesta a una pregunta común.
-- **Pregunta 2**: Respuesta a otra pregunta frecuente.
-- (Continúa con otras preguntas y respuestas relevantes)
-
-### Soporte Técnico
-
-- **Contacto de Soporte**: Información sobre cómo contactar al equipo de soporte en caso de problemas técnicos o dudas.
-- **Horarios de Atención**: Detalles sobre los horarios en los que se puede esperar respuesta del soporte.
-
-
-
-## Contribuir
-
-Instrucciones para quienes deseen contribuir al proyecto, incluyendo políticas de pull requests y cómo reportar bugs.
 
 ## Licencia
 
@@ -69,11 +50,5 @@ Información sobre la licencia bajo la cual se distribuye el proyecto. Por ejemp
 - Isaac González del Pozo
 - Patricia Díez Herguido
 - Natalia García González
-
-
-
-## Enlace a la Aplicación
-
-[PolenTracker Web App](https://isaacgonzalez1.github.io/PolenTracker-ISI/PolenTrackerApp/PolenTrackerInicio.html)
 
 
